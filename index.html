@@ -194,19 +194,19 @@
                 <img id="spinWheelImage" src="spin.png" alt="Spin Wheel">
             </div>
 
-            <!-- ===== AD CODE START ===== -->
-            <!-- Maine yahan ad ke liye ek div banaya hai aur upar se thodi jagah di hai -->
-            <div style="margin-top: 25px;">
+            <!-- ===== PEHLA AD CODE (300x250) SAHI JAGAH PAR HAI ===== -->
+            <div style="margin-top: 25px; text-align: center;">
                 <script type="text/javascript">
-	atOptions = {
-		'key' : '8b0b391d1dbe9db28dbf2e0511aad5d6',
-		'format' : 'iframe',
-		'height' : 250,
-		'width' : 300,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/8b0b391d1dbe9db28dbf2e0511aad5d6/invoke.js"></script>
+                    atOptions = {
+                        'key' : '8b0b391d1dbe9db28dbf2e0511aad5d6',
+                        'format' : 'iframe',
+                        'height' : 250,
+                        'width' : 300,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="//www.highperformanceformat.com/8b0b391d1dbe9db28dbf2e0511aad5d6/invoke.js"></script>
+            </div>
             <!-- ===== AD CODE END ===== -->
 
             <button id="spinButton" class="action-button">SPIN NOW</button>
@@ -232,6 +232,21 @@
             <p>Your prize claim has been submitted successfully!</p>
             <p>Congratulations again! You will be contacted soon.</p>
         </div>
+
+        <!-- ===== DOOSRA AD CODE (BANNER) BODY KE ANDAR SAHI JAGAH PAR ===== -->
+        <div style="margin-top: 25px; text-align: center;">
+            <script type="text/javascript">
+                atOptions = {
+                    'key' : '122ee80aa0bbfbcfe53c46d08b2d9c40',
+                    'format' : 'iframe',
+                    'height' : 50,
+                    'width' : 320,
+                    'params' : {}
+                };
+            </script>
+            <script type="text/javascript" src="//www.highperformanceformat.com/122ee80aa0bbfbcfe53c46d08b2d9c40/invoke.js"></script>
+        </div>
+        
     </div>
 
     <script>
@@ -263,24 +278,23 @@
         const submissionSuccessSection = document.getElementById('submissionSuccessSection');
 
         // --- SOUND EFFECT OBJECTS ---
-        // कृपया 'spinning-wheel-sound.mp3' और 'prize-win-sound.mp3' को अपनी वास्तविक ऑडियो फ़ाइलों से बदलें।
+        // Kripya 'spinning-wheel-sound.mp3' aur 'prize-win-sound.mp3' ko apni audio files se badlein.
         const spinningSound = new Audio('spinning-wheel-sound.mp3'); 
-        spinningSound.loop = true; // घूमने की आवाज़ लूप में चलेगी
+        spinningSound.loop = true;
         const winSound = new Audio('prize-win-sound.mp3');
 
         let isSpinning = false;
         let currentRotation = 0; 
         let selectedPrize = '';
-        let claimedDetails = {}; // To store name and mobile
+        let claimedDetails = {};
 
         spinButton.addEventListener('click', () => {
             if (isSpinning) return;
             isSpinning = true;
             
-            // --- घूमने की आवाज़ शुरू करें ---
             if (spinningSound.paused) {
                 spinningSound.play().catch(e => console.error("Error playing spinning sound:", e));
-            } else { // यदि पहले से बज रहा है, तो रीसेट करें और फिर से चलाएं (हालांकि लूप के साथ यह आवश्यक नहीं होना चाहिए)
+            } else {
                 spinningSound.currentTime = 0;
                 spinningSound.play().catch(e => console.error("Error playing spinning sound:", e));
             }
@@ -294,7 +308,6 @@
 
             const betterLuckIndex = prizes.indexOf("Better Luck Next Time");
             let winningPrizeActualIndex;
-            // यह सुनिश्चित करता है कि "Better Luck Next Time" कभी न चुना जाए, जैसा कि मूल कोड में था
             do {
                 winningPrizeActualIndex = Math.floor(Math.random() * numSegments);
             } while (winningPrizeActualIndex === betterLuckIndex); 
@@ -376,8 +389,7 @@
             whatsappShareButton.textContent = "Shared!";
             
             console.log('Final claim data after share attempt:', claimedDetails);
-            // Here you would typically send claimedDetails to a server
-
+            
             setTimeout(() => {
                 whatsappShareSection.classList.add('hidden');
                 submissionSuccessSection.classList.remove('hidden');
@@ -395,13 +407,3 @@
     </script>
 </body>
 </html>
-<script type="text/javascript">
-	atOptions = {
-		'key' : '122ee80aa0bbfbcfe53c46d08b2d9c40',
-		'format' : 'iframe',
-		'height' : 50,
-		'width' : 320,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/122ee80aa0bbfbcfe53c46d08b2d9c40/invoke.js"></script>
